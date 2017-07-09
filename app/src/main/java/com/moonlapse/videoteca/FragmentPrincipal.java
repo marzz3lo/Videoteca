@@ -32,8 +32,8 @@ import java.util.List;
 
 public class FragmentPrincipal extends BrowseFragment {
 
-    private static final int GRID_ITEM_WIDTH = 200;
     private static final int GRID_ITEM_HEIGHT = 200;
+    private static final int GRID_ITEM_WIDTH = 200;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
