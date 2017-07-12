@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".PlaybackOverlayActivity"/>
+        <activity android:name=".SearchActivity" android:exported="true" />
         <activity android:name=".ActividadDetalles">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
