@@ -30,7 +30,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".PlaybackOverlayActivity"/>
-        <activity android:name=".ActividadDetalles"/>
+        <activity android:name=".ActividadDetalles">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
 
         <receiver
             android:name=".BootupActivity"
@@ -40,7 +47,13 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-        <service android:name=".UpdateRecommendationsService" android:enabled="true" />
+        <service
+            android:name=".UpdateRecommendationsService"
+            android:enabled="true"/>
+        <provider
+            android:name=".VideoContentProvider"
+            android:authorities="com.moonlapse.videoteca"
+            android:exported="true"/>
     </application>
 
 </manifest>
