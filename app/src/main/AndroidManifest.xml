@@ -10,7 +10,7 @@
         android:required="true"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -29,8 +29,18 @@
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".PlaybackOverlayActivity" />
-        <activity android:name=".ActividadDetalles" />
+        <activity android:name=".PlaybackOverlayActivity"/>
+        <activity android:name=".ActividadDetalles"/>
+
+        <receiver
+            android:name=".BootupActivity"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".UpdateRecommendationsService" android:enabled="true" />
     </application>
 
 </manifest>
