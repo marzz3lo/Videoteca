@@ -66,7 +66,7 @@ public class CardPresenter extends Presenter {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, Object item) {
+    public void onBindViewHolder(Presenter.ViewHolder viewHolder, Object item) {
         Movie movie = (Movie) item;
         ImageCardView cardView = (ImageCardView) viewHolder.view;
 
@@ -78,13 +78,14 @@ public class CardPresenter extends Presenter {
             Glide.with(viewHolder.view.getContext())
                     .load(movie.getCardImageUrl())
                     .centerCrop()
+                    .placeholder(R.drawable.banner)
                     .error(mDefaultCardImage)
                     .into(cardView.getMainImageView());
         }
     }
 
     @Override
-    public void onUnbindViewHolder(ViewHolder viewHolder) {
+    public void onUnbindViewHolder(Presenter.ViewHolder viewHolder) {
         Log.d(TAG, "onUnbindViewHolder");
         ImageCardView cardView = (ImageCardView) viewHolder.view;
         // Remove references to images so that the garbage collector can free up memory
