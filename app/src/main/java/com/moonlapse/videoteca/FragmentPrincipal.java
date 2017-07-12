@@ -15,6 +15,7 @@ import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,8 +59,8 @@ public class FragmentPrincipal extends BrowseFragment {
         setTitle("Videoteca");
         setHeadersState(HEADERS_ENABLED);
         setHeadersTransitionOnBackEnabled(true);
-        setBrandColor(getResources()
-                .getColor(R.color.fastlane_background));
+        setBrandColor(getResources().getColor(R.color.fastlane_background));
+        setSearchAffordanceColor(getResources().getColor(R.color.search_opaque));
     }
 
     private void cargarListas() {
@@ -132,6 +133,12 @@ public class FragmentPrincipal extends BrowseFragment {
 
     private void setupEventListeners() {
         setOnItemViewClickedListener(new ItemViewClickedListener());
+        setOnSearchClickedListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Implementar la busqueda aquí", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private final class ItemViewClickedListener implements OnItemViewClickedListener {
